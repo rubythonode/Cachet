@@ -56,14 +56,14 @@ class DemoSeederCommand extends Command
     /**
      * The settings repository.
      *
-     * @var \CachetHQ\Cache\Settings\Repository
+     * @var \CachetHQ\Cachet\Settings\Repository
      */
     protected $settings;
 
     /**
      * Create a new demo seeder command instance.
      *
-     * @param \CachetHQ\Cache\Settings\Repository $settings
+     * @param \CachetHQ\Cachet\Settings\Repository $settings
      *
      * @return void
      */
@@ -393,6 +393,9 @@ EINCIDENT;
             ], [
                 'key'   => 'app_incident_days',
                 'value' => '7',
+            ], [
+                'key'   => 'app_refresh_rate',
+                'value' => '0',
             ], [
                 'key'   => 'app_analytics',
                 'value' => 'UA-58442674-3',

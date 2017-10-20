@@ -13,12 +13,40 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+window.axios = require('axios');
 
-const app = new Vue({
-    el: '#app'
-});
+window.axios.defaults.headers.common = {
+    'X-CSRF-Token': window.Global.csrfToken,
+    'X-Requested-With': 'XMLHttpRequest'
+};
+
+((win, doc) => {
+    /**
+     * Next, we will create a fresh Vue application instance and attach it to
+     * the page. Then, you may begin adding components to this application
+     * or customize the JavaScript scaffolding to fit your unique needs.
+     */
+
+    new Vue({
+        el: '#app',
+        data () {
+            return {
+                // TODO: Fill this with the active user.
+                user: null,
+                messages: [
+                    //
+                ],
+                system: {
+                    updateAvailable: false,
+                }
+            }
+        },
+        components: {
+            'setup': require('./components/Setup'),
+            'dashboard': require('./components/dashboard/Dashboard'),
+            'report-incident': require('./components/dashboard/ReportIncident'),
+            'invite-team': require('./components/dashboard/InviteTeam'),
+            'metric-chart': require('./components/status-page/Metric'),
+        }
+    })
+})()

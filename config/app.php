@@ -73,7 +73,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => env('APP_TIMEZONE', 'UTC'),
 
     /*
     |--------------------------------------------------------------------------
@@ -186,6 +186,7 @@ return [
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,
         GrahamCampbell\Security\SecurityServiceProvider::class,
         Jenssegers\Date\DateServiceProvider::class,
+        Laravel\Tinker\TinkerServiceProvider::class,
         McCool\LaravelAutoPresenter\AutoPresenterServiceProvider::class,
         PragmaRX\Google2FA\Vendor\Laravel\ServiceProvider::class,
         Roumen\Feed\FeedServiceProvider::class,
